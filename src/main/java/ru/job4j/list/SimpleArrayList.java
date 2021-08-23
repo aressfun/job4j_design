@@ -3,12 +3,16 @@ package ru.job4j.list;
 import java.util.*;
 
 public class SimpleArrayList<T> implements List<T> {
-    private Object[] container = new Object[10];
+    private Object[] container;
     private int size;
     private int modCount;
 
     public SimpleArrayList(int capacity) {
         this.container = (T[]) new Object[capacity];
+    }
+
+    public SimpleArrayList() {
+        this.container = new Object[10];
     }
 
     @Override
@@ -54,6 +58,11 @@ public class SimpleArrayList<T> implements List<T> {
     @Override
     public int size() {
         return size;
+    }
+
+    @Override
+    public int length() {
+        return container.length;
     }
 
     @Override
