@@ -46,6 +46,10 @@ public class ForwardLinked<T> implements Iterable<T> {
         return value;
     }
 
+    public int size() {
+        return this.size;
+    }
+
     @Override
     public Iterator<T> iterator() {
         return new Iterator<T>() {
