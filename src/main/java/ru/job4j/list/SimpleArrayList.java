@@ -3,7 +3,7 @@ package ru.job4j.list;
 import java.util.*;
 
 public class SimpleArrayList<T> implements List<T> {
-    private Object[] container;
+    private Object[] container = new Object[10];
     private int size;
     private int modCount;
 
