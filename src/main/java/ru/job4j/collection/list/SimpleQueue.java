@@ -1,4 +1,4 @@
-package ru.job4j.collection;
+package ru.job4j.collection.list;
 
 public class SimpleQueue<T> {
     private final SimpleStack<T> in = new SimpleStack<>();
