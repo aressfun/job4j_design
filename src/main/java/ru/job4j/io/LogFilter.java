@@ -19,6 +19,15 @@ public class LogFilter {
         List<String> list = LogFilter.filter("log.txt");
         for (String l : list) {
             System.out.println(l);
+            LogFilter.save(list, "filterLog.txt");
+        }
+    }
+
+    public static void save(List<String> log, String file) {
+        try (PrintWriter out = new PrintWriter(new BufferedOutputStream(new FileOutputStream(file)))) {
+            out.println(log);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
