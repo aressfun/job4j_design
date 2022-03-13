@@ -1,13 +1,9 @@
 create table users(
 	id serial primary key,
-	name text
+	name text,
+	users_id int references role(id)
 );
 
-create table role(
-	id serial primary key,
-	name text,
-	users_id int references users(id)
-);
 
 create table rules(
 	id serial primary key,
@@ -47,4 +43,4 @@ create table attachs(
 	id serial primary key,
 	name text,
 	item_id int references item(id)
-);
+); 
