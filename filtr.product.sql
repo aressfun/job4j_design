@@ -1,3 +1,9 @@
+create table type(
+	id serial primary key,
+	name varchar(255)
+);
+
+
 create table product(
 	id serial primary key,
 	name varchar(255),
@@ -6,10 +12,7 @@ create table product(
 	price int
 );
 
-create table type(
-	id serial primary key,
-	name varchar(255)
-);
+
 
 insert into type(id, name) values (1, 'СЫР');
 insert into type(id, name) values (2, 'МОЛОКО');
@@ -27,33 +30,35 @@ insert into product(name, type_id, expired_date, price) values('Мороженн
 insert into product(name, type_id, expired_date, price) values('Шоколад Milka', 3, '2022-04-13', 73);
 insert into product(name, type_id, expired_date, price) values('Сырок Б.Ю. Александров', 3, '2022-04-13', 73);
 
-select*from product
+select*from product;
+
 select*from type
-delete from product
+delete from product;
 
 select*from product
 join type
 on type.id=product.type_id
-where type.Name='СЫР'
+where type.Name='СЫР';
 
 select*from product
-where Name LIKE '%Мороженное%'
+where Name LIKE '%Мороженное%';
 
 select*from product
-where expired_date<NOW()
+where expired_date<NOW();
 
 select*from product
-where price in (select max(price) from product)
+where price in (select max(price) from product);
 
-select type.name, product.name
+select type.name, count(type_id)
 from product
 join type
 on type.id=product.type_id
+group BY type.name;
 
 select*from product
 join type
 on type.id=product.type_id
-where type.name='СЫР' OR type.name='МОЛОКО'
+where type.name='СЫР' OR type.name='МОЛОКО';
 
 select type.name,
 count(type_id)
@@ -61,11 +66,9 @@ from type
 join product
 on type.id=product.type_id
 group by type.name
-HAVING count(type_id) < 10
+HAVING count(type_id) < 10;
 
 select product.name, product.type_id, product.expired_date, product.price, type.name
 from product
 join type
-on type.id=product.type_id
-
-
+on type.id=product.type_id;
